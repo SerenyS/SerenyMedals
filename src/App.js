@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Country from './components/Country';
 import NewCountry from './components/NewCountry';
+import sample from './content/backgroundVideo.mp4'
 import './App.css';
 
 const App = () => {
@@ -73,6 +74,10 @@ const App = () => {
   }
   return (
     <React.Fragment>
+    <video className='videoTag' id="background-video" autoPlay loop muted>
+    <source src={sample} type='video/mp4' />
+    </video>
+
       <div className='appHeading'>
         Olympic Medals
         <span className='badge'>

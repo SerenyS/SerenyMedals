@@ -10,7 +10,7 @@ const NewCountry = (props) => {
   }
   return (
     <div className='newCountryButton'>
-      <button onClick={ handleClick }>New Country</button>
+      <button id = "mainbutton" onClick={ handleClick }>Add New Country</button>
     </div>
   );
 }
