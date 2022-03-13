@@ -7,14 +7,23 @@ import { CardContent } from '@mui/material';
 import Typography from '@mui/material/Typography';
 
 const Country = (props) => {
-  const { country, medals, onIncrement, onDecrement, onDelete } = props;
+  const { country, medals, onIncrement, onDecrement, onDelete, onSave, onReset } = props;
 
   const getMedalsTotal = (country, medals) => {
     let sum = 0;
-    medals.forEach(medal => { sum += country[medal.name]; });
+    medals.forEach(medal => { sum += country[medal.name].page_value; });
     return sum;
   }
-  return (
+ const renderSaveButton = () => {
+    let unsaved = false;
+    medals.forEach(medal => {
+      if (country[medal.name].page_value !== country[medal.name].saved_value) {
+        unsaved = true;
+      }
+    });
+    return unsaved;
+  }
+return (
   
 <Box 
 width={300} height={300} 
@@ -40,8 +49,14 @@ borderColor="pink">
           onIncrement={ onIncrement } 
           onDecrement={ onDecrement } />
       ) }
-      <button id = "mainbutton" onClick={() => onDelete(country.id)}>Delete</button>
-      
+      { renderSaveButton() ?
+        <React.Fragment>
+          <button style={{marginLeft:'8px'}} onClick={ () => onSave(country.id) }>save</button>
+          <button style={{marginLeft:'8px'}} onClick={ () => onReset(country.id) }>reset</button>
+        </React.Fragment>
+        :
+        <button id="mainButton" onClick={() => onDelete(country.id)}>delete</button>
+      }
     </div>
 
   </CardContent>
