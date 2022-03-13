@@ -4,7 +4,7 @@
   min-height: 40px;
   position: fixed;
   z-index: 1000;
-  background-color:rgb(1, 19, 78);
+  background-color: rgb(1, 19, 78);
   color: white;
   padding: 6px;
   opacity: 0.85;
@@ -31,7 +31,7 @@
   justify-content: center;
   align-items: center;
 }
-#mainbutton{
+#mainbutton {
   background-color: #ecd96b;
   border-radius: 5px;
 }
@@ -73,4 +73,20 @@
   bottom: 0;
   z-index: -1;
   opacity: 0.7;
+}
+.loginForm {
+  border: 1px solid #999;
+  background-color: #dedede;
+  padding: 8px;
+  border-radius: 4px;
+  position: absolute;
+  width: 300px;
+  top: 65px;
+  left: 8px;
+}
+.loginLink {
+  color: #fff;
+  position: absolute;
+  top: 8px;
+  left: 8px;
 }
